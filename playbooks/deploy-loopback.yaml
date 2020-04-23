@@ -1,0 +1,12 @@
+---
+- hosts: all-network
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: configure loopback interface
+      ios_config:
+        lines:
+          - description Loopback1208 created with ansible
+          - ip address 1.1.1.1 255.255.255.0
+        parents: interface Loopback1208
