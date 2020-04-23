@@ -30,7 +30,7 @@ system mtu routing 1500
 !
 no ip domain-lookup
 ip domain-name devnet.cisco.com
-vtp mode off
+vtp mode on
 !
 !
 !
