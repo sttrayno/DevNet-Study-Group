@@ -1,3 +1,3 @@
-# DevNet-Study-Group
+# DevNet Study Group
 
 Resources for DevNet study group 
