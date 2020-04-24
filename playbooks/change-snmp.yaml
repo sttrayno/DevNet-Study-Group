@@ -1,0 +1,12 @@
+---
+
+- hosts: all-network
+  gather_facts: false
+  connection: local
+
+  tasks:
+    - name: Change SNMP strings for all devices
+      ios_config:
+        lines:
+          - no snmp-server community cisco RW
+          - snmp-server community smmp-changed RW
