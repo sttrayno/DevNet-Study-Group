@@ -1,27 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<breakfast_menu>
-<food>
-    <name>Belgian Waffles</name>
-    <price>$5.95</price>
-    <description>
-   Two of our famous Belgian Waffles with plenty of real maple syrup
-   </description>
-    <calories>650</calories>
-</food>
-<food>
-    <name>Strawberry Belgian Waffles</name>
-    <price>$7.95</price>
-    <description>
-    Light Belgian waffles covered with strawberries and whipped cream
-    </description>
-    <calories>900</calories>
-</food>
-<food>
-    <name>Berry-Berry Belgian Waffles</name>
-    <price>$8.95</price>
-    <description>
-    Belgian waffles covered with assorted fresh berries and whipped cream
-    </description>
-    <calories>900</calories>
-</food>
-</breakfast_menu>
+<?xml version="1.0" encoding="UTF-8" ?>
+<root>
+  <doe>a deer, a female deer</doe>
+  <ray>a drop of golden sun</ray>
+  <pi>3.14159</pi>
+  <xmas>true</xmas>
+  <french-hens>3</french-hens>
+  <calling-birds>huey</calling-birds>
+  <calling-birds>dewey</calling-birds>
+  <calling-birds>louie</calling-birds>
+  <calling-birds>fred</calling-birds>
+  <xmas-fifth-day>
+    <calling-birds>four</calling-birds>
+    <french-hens>3</french-hens>
+    <golden-rings>5</golden-rings>
+    <partridges>
+      <count>1</count>
+      <location>a pear tree</location>
+    </partridges>
+    <turtle-doves>two</turtle-doves>
+  </xmas-fifth-day>
+</root>
