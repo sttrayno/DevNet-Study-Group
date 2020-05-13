@@ -1,0 +1,1319 @@
+{
+	"info": {
+		"_postman_id": "aaf5f888-80e3-4a13-a5ed-6ad890312469",
+		"name": "DevNet Study Group",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getOrganizations",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/organizations",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"organizations"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/organizations",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"organizations"
+							]
+						},
+						"description": "List the organizations that the user has privileges on"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"2930418\",\r\n    \"name\": \"My organization\",\r\n    \"url\": \"https://dashboard.meraki.com/o/VjjsAd/manage/organization/overview\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "getOrganizationNetworks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/organizations/:organizationId/networks",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"organizations",
+						":organizationId",
+						"networks"
+					],
+					"variable": [
+						{
+							"key": "organizationId",
+							"value": "{{organizationId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/organizations/:organizationId/networks?configTemplateId={{configTemplateId}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"organizations",
+								":organizationId",
+								"networks"
+							],
+							"query": [
+								{
+									"key": "configTemplateId",
+									"value": "{{configTemplateId}}",
+									"description": "An optional parameter that is the ID of a config template. Will return all networks bound to that template."
+								}
+							],
+							"variable": [
+								{
+									"key": "organizationId",
+									"value": "{{organizationId}}"
+								}
+							]
+						},
+						"description": "List the networks in an organization"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"L_123456\",\r\n    \"organizationId\": \"2930418\",\r\n    \"name\": \"Long Island Office\",\r\n    \"timeZone\": \"America/Los_Angeles\",\r\n    \"tags\": \" tag1 tag2 \",\r\n    \"type\": \"combined\",\r\n    \"productTypes\": [\r\n      \"appliance\",\r\n      \"switch\",\r\n      \"wireless\"\r\n    ],\r\n    \"disableMyMerakiCom\": false,\r\n    \"enrollmentString\": \"long-island-office\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "getOrganizationDevices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/organizations/:organizationId/devices",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"organizations",
+						":organizationId",
+						"devices"
+					],
+					"query": [
+						{
+							"key": "perPage",
+							"value": "{{perPage}}",
+							"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000.",
+							"disabled": true
+						},
+						{
+							"key": "startingAfter",
+							"value": "{{startingAfter}}",
+							"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+							"disabled": true
+						},
+						{
+							"key": "endingBefore",
+							"value": "{{endingBefore}}",
+							"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it.",
+							"disabled": true
+						}
+					],
+					"variable": [
+						{
+							"key": "organizationId",
+							"value": "{{organizationId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/organizations/:organizationId/devices?perPage={{perPage}}&startingAfter={{startingAfter}}&endingBefore={{endingBefore}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"organizations",
+								":organizationId",
+								"devices"
+							],
+							"query": [
+								{
+									"key": "perPage",
+									"value": "{{perPage}}",
+									"description": "The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000."
+								},
+								{
+									"key": "startingAfter",
+									"value": "{{startingAfter}}",
+									"description": "A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+								},
+								{
+									"key": "endingBefore",
+									"value": "{{endingBefore}}",
+									"description": "A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it."
+								}
+							],
+							"variable": [
+								{
+									"key": "organizationId",
+									"value": "{{organizationId}}"
+								}
+							]
+						},
+						"description": "List the devices in an organization"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"name\": \"My AP\",\r\n  \"lat\": 37.4180951010362,\r\n  \"lng\": -122.098531723022,\r\n  \"address\": \"1600 Pennsylvania Ave\",\r\n  \"notes\": \"My AP's note\",\r\n  \"tags\": \" recently-added \",\r\n  \"networkId\": \"N_24329156\",\r\n  \"serial\": \"Q234-ABCD-5678\",\r\n  \"model\": \"MR34\",\r\n  \"mac\": \"00:11:22:33:44:55\",\r\n  \"lanIp\": \"1.2.3.4\",\r\n  \"firmware\": \"wireless-25-14\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "getNetworkDevices",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/devices",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"devices"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/devices",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"devices"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								}
+							]
+						},
+						"description": "List the devices in a network"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"name\": \"My AP\",\r\n    \"lat\": 37.4180951010362,\r\n    \"lng\": -122.098531723022,\r\n    \"serial\": \"Q234-ABCD-5678\",\r\n    \"mac\": \"00:11:22:33:44:55\",\r\n    \"model\": \"MR34\",\r\n    \"address\": \"1600 Pennsylvania Ave\",\r\n    \"notes\": \"My AP's note\",\r\n    \"lanIp\": \"1.2.3.4\",\r\n    \"tags\": \" recently-added \",\r\n    \"networkId\": \"N_24329156\",\r\n    \"beaconIdParams\": {\r\n      \"uuid\": \"00000000-0000-0000-0000-000000000000\",\r\n      \"major\": 5,\r\n      \"minor\": 3\r\n    },\r\n    \"firmware\": \"wireless-25-14\",\r\n    \"floorPlanId\": \"g_1234567\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "getNetworkVlans",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlans",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"vlans"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlans",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"vlans"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								}
+							]
+						},
+						"description": "List the VLANs for an MX network"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"id\": \"1234\",\r\n    \"networkId\": \"N_24329156\",\r\n    \"name\": \"My VLAN\",\r\n    \"applianceIp\": \"1.2.3.4\",\r\n    \"subnet\": \"192.168.1.0/24\",\r\n    \"fixedIpAssignments\": {\r\n      \"22:33:44:55:66:77\": {\r\n        \"ip\": \"1.2.3.4\",\r\n        \"name\": \"Some client name\"\r\n      }\r\n    },\r\n    \"reservedIpRanges\": [\r\n      {\r\n        \"start\": \"192.168.1.0\",\r\n        \"end\": \"192.168.1.1\",\r\n        \"comment\": \"A reserved IP range\"\r\n      }\r\n    ],\r\n    \"dnsNameservers\": \"google_dns\",\r\n    \"dhcpHandling\": \"Run a DHCP server\",\r\n    \"dhcpLeaseTime\": \"1 day\",\r\n    \"dhcpBootOptionsEnabled\": false,\r\n    \"dhcpBootNextServer\": null,\r\n    \"dhcpBootFilename\": null,\r\n    \"dhcpOptions\": [\r\n      {\r\n        \"code\": 5,\r\n        \"type\": \"text\",\r\n        \"value\": \"five\"\r\n      }\r\n    ]\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "createNetworkVlan",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"1234\",\r\n  \"name\": \"My VLAN\",\r\n  \"subnet\": \"192.168.100.0/24\",\r\n  \"applianceIp\": \"192.168.100.1\"\r\n}"
+				},
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlans",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"vlans"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_201",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": \"1234\",\r\n  \"name\": \"My VLAN\",\r\n  \"subnet\": \"192.168.1.0/24\",\r\n  \"applianceIp\": \"1.2.3.4\"\r\n}"
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlans",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"vlans"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								}
+							]
+						},
+						"description": "Add a VLAN\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nid| string| The VLAN ID of the new VLAN (must be between 1 and 4094)\nname| string| The name of the new VLAN\nsubnet| string| The subnet of the VLAN\napplianceIp| string| The local IP of the appliance on the VLAN\n"
+					},
+					"status": "Successful operation",
+					"code": 201,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"id\": \"1234\",\r\n  \"networkId\": \"N_24329156\",\r\n  \"name\": \"My VLAN\",\r\n  \"applianceIp\": \"1.2.3.4\",\r\n  \"subnet\": \"192.168.1.0/24\",\r\n  \"fixedIpAssignments\": {},\r\n  \"reservedIpRanges\": [],\r\n  \"dnsNameservers\": \"google_dns\",\r\n  \"dhcpHandling\": \"Run a DHCP server\",\r\n  \"dhcpLeaseTime\": \"1 day\",\r\n  \"dhcpBootOptionsEnabled\": false,\r\n  \"dhcpBootNextServer\": null,\r\n  \"dhcpBootFilename\": null,\r\n  \"dhcpOptions\": []\r\n}"
+				}
+			]
+		},
+		{
+			"name": "updateNetworkVlansEnabledState",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"enabled\": true\r\n}"
+				},
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlansEnabledState",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"vlansEnabledState"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"enabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlansEnabledState",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"vlansEnabledState"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								}
+							]
+						},
+						"description": "Enable/Disable VLANs for the given network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nenabled| boolean| Boolean indicating whether to enable (true) or disable (false) VLANs for the network\n"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"enabled\": true,\r\n  \"networkId\": \"N_24329156\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteNetworkVlan",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlans/:vlanId",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"vlans",
+						":vlanId"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						},
+						{
+							"key": "vlanId",
+							"value": "{{vlanId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_204",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlans/:vlanId",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"vlans",
+								":vlanId"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								},
+								{
+									"key": "vlanId",
+									"value": "{{vlanId}}"
+								}
+							]
+						},
+						"description": "Delete a VLAN from a network"
+					},
+					"status": "Successful operation",
+					"code": 204,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "Disable - updateNetworkVlansEnabledState",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"enabled\": false\r\n}"
+				},
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlansEnabledState",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"vlansEnabledState"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"enabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/vlansEnabledState",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"vlansEnabledState"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								}
+							]
+						},
+						"description": "Enable/Disable VLANs for the given network\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nenabled| boolean| Boolean indicating whether to enable (true) or disable (false) VLANs for the network\n"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"enabled\": true,\r\n  \"networkId\": \"N_24329156\"\r\n}"
+				}
+			]
+		},
+		{
+			"name": "getDeviceSwitchPorts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"devices",
+						":serial",
+						"switchPorts"
+					],
+					"variable": [
+						{
+							"key": "serial",
+							"value": "{{serial}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"devices",
+								":serial",
+								"switchPorts"
+							],
+							"variable": [
+								{
+									"key": "serial",
+									"value": "{{serial}}"
+								}
+							]
+						},
+						"description": "List the switch ports for a switch"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"number\": 1,\r\n    \"name\": \"My switch port\",\r\n    \"tags\": \"tag1 tag2\",\r\n    \"enabled\": true,\r\n    \"poeEnabled\": true,\r\n    \"type\": \"access\",\r\n    \"vlan\": 10,\r\n    \"voiceVlan\": 20,\r\n    \"isolationEnabled\": false,\r\n    \"rstpEnabled\": true,\r\n    \"stpGuard\": \"disabled\",\r\n    \"accessPolicyNumber\": \"1234\",\r\n    \"linkNegotiation\": \"Auto negotiate\",\r\n    \"portScheduleId\": \"1234\",\r\n    \"udld\": \"Alert only\",\r\n    \"macWhitelist\": [\r\n      \"34:56:fe:ce:8e:a0\",\r\n      \"34:56:fe:ce:8e:a1\"\r\n    ],\r\n    \"stickyMacWhitelist\": [\r\n      \"34:56:fe:ce:8e:b0\",\r\n      \"34:56:fe:ce:8e:b1\"\r\n    ],\r\n    \"stickyMacWhitelistLimit\": 5,\r\n    \"stormControlEnabled\": true\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "getNetworkAppliancePorts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/networks/:networkId/appliancePorts",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"networks",
+						":networkId",
+						"appliancePorts"
+					],
+					"variable": [
+						{
+							"key": "networkId",
+							"value": "{{networkId}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/networks/:networkId/appliancePorts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"networks",
+								":networkId",
+								"appliancePorts"
+							],
+							"variable": [
+								{
+									"key": "networkId",
+									"value": "{{networkId}}"
+								}
+							]
+						},
+						"description": "List per-port VLAN settings for all ports of a MX."
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "[\r\n  {\r\n    \"number\": 1,\r\n    \"enabled\": true,\r\n    \"type\": \"access\",\r\n    \"dropUntaggedTraffic\": false,\r\n    \"vlan\": 3,\r\n    \"accessPolicy\": \"open\"\r\n  }\r\n]"
+				}
+			]
+		},
+		{
+			"name": "getDeviceSwitchPort",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					}
+				],
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts/:number",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"devices",
+						":serial",
+						"switchPorts",
+						":number"
+					],
+					"variable": [
+						{
+							"key": "serial",
+							"value": "{{serial}}"
+						},
+						{
+							"key": "number",
+							"value": "{{number}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							}
+						],
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts/:number",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"devices",
+								":serial",
+								"switchPorts",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "serial",
+									"value": "{{serial}}"
+								},
+								{
+									"key": "number",
+									"value": "{{number}}"
+								}
+							]
+						},
+						"description": "Return a switch port"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"number\": 1,\r\n  \"name\": \"My switch port\",\r\n  \"tags\": \"tag1 tag2\",\r\n  \"enabled\": true,\r\n  \"poeEnabled\": true,\r\n  \"type\": \"access\",\r\n  \"vlan\": 10,\r\n  \"voiceVlan\": 20,\r\n  \"isolationEnabled\": false,\r\n  \"rstpEnabled\": true,\r\n  \"stpGuard\": \"disabled\",\r\n  \"accessPolicyNumber\": \"1234\",\r\n  \"linkNegotiation\": \"Auto negotiate\",\r\n  \"portScheduleId\": \"1234\",\r\n  \"udld\": \"Alert only\",\r\n  \"macWhitelist\": [\r\n    \"34:56:fe:ce:8e:a0\",\r\n    \"34:56:fe:ce:8e:a1\"\r\n  ],\r\n  \"stickyMacWhitelist\": [\r\n    \"34:56:fe:ce:8e:b0\",\r\n    \"34:56:fe:ce:8e:b1\"\r\n  ],\r\n  \"stickyMacWhitelistLimit\": 5,\r\n  \"stormControlEnabled\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "updateDeviceSwitchPort",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"DevNet Test Switch port\",\r\n  \"enabled\": true,\r\n  \"poeEnabled\": true,\r\n  \"type\": \"access\",\r\n  \"vlan\": 10,\r\n  \"voiceVlan\": 20,\r\n  \"isolationEnabled\": false,\r\n  \"rstpEnabled\": true,\r\n  \"stpGuard\": \"disabled\",\r\n  \"accessPolicyNumber\": \"1\",\r\n  \"linkNegotiation\": \"Auto negotiate\",\r\n  \"udld\": \"Alert only\",\r\n  \"macWhitelist\": [\r\n    \"34:56:fe:ce:8e:a0\",\r\n    \"34:56:fe:ce:8e:a1\"\r\n  ],\r\n  \"stickyMacWhitelist\": [\r\n    \"34:56:fe:ce:8e:b0\",\r\n    \"34:56:fe:ce:8e:b1\"\r\n  ],\r\n  \"stickyMacWhitelistLimit\": 5,\r\n  \"stormControlEnabled\": true\r\n}"
+				},
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts/:number",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"devices",
+						":serial",
+						"switchPorts",
+						":number"
+					],
+					"variable": [
+						{
+							"key": "serial",
+							"value": "{{serial}}"
+						},
+						{
+							"key": "number",
+							"value": "{{number}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"My switch port\",\r\n  \"tags\": \"tag1 tag2\",\r\n  \"enabled\": true,\r\n  \"poeEnabled\": true,\r\n  \"type\": \"access\",\r\n  \"vlan\": 10,\r\n  \"voiceVlan\": 20,\r\n  \"isolationEnabled\": false,\r\n  \"rstpEnabled\": true,\r\n  \"stpGuard\": \"disabled\",\r\n  \"accessPolicyNumber\": \"1234\",\r\n  \"linkNegotiation\": \"Auto negotiate\",\r\n  \"portScheduleId\": \"1234\",\r\n  \"udld\": \"Alert only\",\r\n  \"macWhitelist\": [\r\n    \"34:56:fe:ce:8e:a0\",\r\n    \"34:56:fe:ce:8e:a1\"\r\n  ],\r\n  \"stickyMacWhitelist\": [\r\n    \"34:56:fe:ce:8e:b0\",\r\n    \"34:56:fe:ce:8e:b1\"\r\n  ],\r\n  \"stickyMacWhitelistLimit\": 5,\r\n  \"stormControlEnabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts/:number",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"devices",
+								":serial",
+								"switchPorts",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "serial",
+									"value": "{{serial}}"
+								},
+								{
+									"key": "number",
+									"value": "{{number}}"
+								}
+							]
+						},
+						"description": "Update a switch port\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the switch port\ntags| string| The tags of the switch port\nenabled| boolean| The status of the switch port\ntype| string| The type of the switch port (\"access\" or \"trunk\")\nvlan| integer| The VLAN of the switch port. A null value will clear the value set for trunk ports.\nvoiceVlan| integer| The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans| string| The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled| boolean| The PoE status of the switch port\nisolationEnabled| boolean| The isolation status of the switch port\nrstpEnabled| boolean| The rapid spanning tree protocol status\nstpGuard| string| The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber| integer| The number of the access policy of the switch port. Only applicable to access ports.\nlinkNegotiation| string| The link speed for the switch port\nportScheduleId| string| The ID of the port schedule. A value of null will clear the port schedule.\nudld| string| The action to take when Unidirectional Link is detected (Alert only, Enforce). Default configuration is Alert only.\nmacWhitelist| array| Only devices with MAC addresses specified in this list will have access to this port. Up to 20 MAC addresses can be defined. To disable MAC whitelist, set accessPolicyNumber to null.\nstickyMacWhitelist| array| The initial list of MAC addresses for sticky Mac whitelist. To reset Sticky MAC whitelist, set accessPolicyNumber to null.\nstickyMacWhitelistLimit| integer| The maximum number of MAC addresses for sticky MAC whitelist.\nstormControlEnabled| boolean| The storm control status of the switch port\n"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"number\": 1,\r\n  \"name\": \"My switch port\",\r\n  \"tags\": \"tag1 tag2\",\r\n  \"enabled\": true,\r\n  \"poeEnabled\": true,\r\n  \"type\": \"access\",\r\n  \"vlan\": 10,\r\n  \"voiceVlan\": 20,\r\n  \"isolationEnabled\": false,\r\n  \"rstpEnabled\": true,\r\n  \"stpGuard\": \"disabled\",\r\n  \"accessPolicyNumber\": \"1234\",\r\n  \"linkNegotiation\": \"Auto negotiate\",\r\n  \"portScheduleId\": \"1234\",\r\n  \"udld\": \"Alert only\",\r\n  \"macWhitelist\": [\r\n    \"34:56:fe:ce:8e:a0\",\r\n    \"34:56:fe:ce:8e:a1\"\r\n  ],\r\n  \"stickyMacWhitelist\": [\r\n    \"34:56:fe:ce:8e:b0\",\r\n    \"34:56:fe:ce:8e:b1\"\r\n  ],\r\n  \"stickyMacWhitelistLimit\": 5,\r\n  \"stormControlEnabled\": true\r\n}"
+				}
+			]
+		},
+		{
+			"name": "Reset - updateDeviceSwitchPort",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "*/*"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"number\": 5,\n    \"name\": null,\n    \"tags\": null,\n    \"enabled\": true,\n    \"poeEnabled\": true,\n    \"type\": \"trunk\",\n    \"vlan\": 1,\n    \"voiceVlan\": null,\n    \"allowedVlans\": \"all\",\n    \"isolationEnabled\": false,\n    \"rstpEnabled\": true,\n    \"stpGuard\": \"disabled\",\n    \"linkNegotiation\": \"Auto negotiate\",\n    \"portScheduleId\": null,\n    \"udld\": \"Alert only\",\n    \"accessPolicyNumber\": null\n}"
+				},
+				"url": {
+					"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts/:number",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meraki",
+						"com"
+					],
+					"path": [
+						"api",
+						"v0",
+						"devices",
+						":serial",
+						"switchPorts",
+						":number"
+					],
+					"variable": [
+						{
+							"key": "serial",
+							"value": "{{serial}}"
+						},
+						{
+							"key": "number",
+							"value": "{{number}}"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Response_200",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "*/*"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"My switch port\",\r\n  \"tags\": \"tag1 tag2\",\r\n  \"enabled\": true,\r\n  \"poeEnabled\": true,\r\n  \"type\": \"access\",\r\n  \"vlan\": 10,\r\n  \"voiceVlan\": 20,\r\n  \"isolationEnabled\": false,\r\n  \"rstpEnabled\": true,\r\n  \"stpGuard\": \"disabled\",\r\n  \"accessPolicyNumber\": \"1234\",\r\n  \"linkNegotiation\": \"Auto negotiate\",\r\n  \"portScheduleId\": \"1234\",\r\n  \"udld\": \"Alert only\",\r\n  \"macWhitelist\": [\r\n    \"34:56:fe:ce:8e:a0\",\r\n    \"34:56:fe:ce:8e:a1\"\r\n  ],\r\n  \"stickyMacWhitelist\": [\r\n    \"34:56:fe:ce:8e:b0\",\r\n    \"34:56:fe:ce:8e:b1\"\r\n  ],\r\n  \"stickyMacWhitelistLimit\": 5,\r\n  \"stormControlEnabled\": true\r\n}"
+						},
+						"url": {
+							"raw": "https://api.meraki.com/api/v0/devices/:serial/switchPorts/:number",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meraki",
+								"com"
+							],
+							"path": [
+								"api",
+								"v0",
+								"devices",
+								":serial",
+								"switchPorts",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "serial",
+									"value": "{{serial}}"
+								},
+								{
+									"key": "number",
+									"value": "{{number}}"
+								}
+							]
+						},
+						"description": "Update a switch port\n #### Body Parameters \n**Parameter**|**Type**|**Description** \n :-------------: |:-------------: |:-------------: \nname| string| The name of the switch port\ntags| string| The tags of the switch port\nenabled| boolean| The status of the switch port\ntype| string| The type of the switch port (\"access\" or \"trunk\")\nvlan| integer| The VLAN of the switch port. A null value will clear the value set for trunk ports.\nvoiceVlan| integer| The voice VLAN of the switch port. Only applicable to access ports.\nallowedVlans| string| The VLANs allowed on the switch port. Only applicable to trunk ports.\npoeEnabled| boolean| The PoE status of the switch port\nisolationEnabled| boolean| The isolation status of the switch port\nrstpEnabled| boolean| The rapid spanning tree protocol status\nstpGuard| string| The state of the STP guard (\"disabled\", \"Root guard\", \"BPDU guard\", \"Loop guard\")\naccessPolicyNumber| integer| The number of the access policy of the switch port. Only applicable to access ports.\nlinkNegotiation| string| The link speed for the switch port\nportScheduleId| string| The ID of the port schedule. A value of null will clear the port schedule.\nudld| string| The action to take when Unidirectional Link is detected (Alert only, Enforce). Default configuration is Alert only.\nmacWhitelist| array| Only devices with MAC addresses specified in this list will have access to this port. Up to 20 MAC addresses can be defined. To disable MAC whitelist, set accessPolicyNumber to null.\nstickyMacWhitelist| array| The initial list of MAC addresses for sticky Mac whitelist. To reset Sticky MAC whitelist, set accessPolicyNumber to null.\nstickyMacWhitelistLimit| integer| The maximum number of MAC addresses for sticky MAC whitelist.\nstormControlEnabled| boolean| The storm control status of the switch port\n"
+					},
+					"status": "Successful operation",
+					"code": 200,
+					"_postman_previewlanguage": "Text",
+					"header": [],
+					"cookie": [],
+					"body": "{\r\n  \"number\": 1,\r\n  \"name\": \"My switch port\",\r\n  \"tags\": \"tag1 tag2\",\r\n  \"enabled\": true,\r\n  \"poeEnabled\": true,\r\n  \"type\": \"access\",\r\n  \"vlan\": 10,\r\n  \"voiceVlan\": 20,\r\n  \"isolationEnabled\": false,\r\n  \"rstpEnabled\": true,\r\n  \"stpGuard\": \"disabled\",\r\n  \"accessPolicyNumber\": \"1234\",\r\n  \"linkNegotiation\": \"Auto negotiate\",\r\n  \"portScheduleId\": \"1234\",\r\n  \"udld\": \"Alert only\",\r\n  \"macWhitelist\": [\r\n    \"34:56:fe:ce:8e:a0\",\r\n    \"34:56:fe:ce:8e:a1\"\r\n  ],\r\n  \"stickyMacWhitelist\": [\r\n    \"34:56:fe:ce:8e:b0\",\r\n    \"34:56:fe:ce:8e:b1\"\r\n  ],\r\n  \"stickyMacWhitelistLimit\": 5,\r\n  \"stormControlEnabled\": true\r\n}"
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "X-Cisco-Meraki-API-Key",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "e35fd60c7cc8d1bb4f5c00bb1e47c76e8aac7e2d",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "63f00b76-1391-4be1-b740-22d0542e5924",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "cf529147-7352-4241-84f6-460fece8b928",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b52d773b-d581-4f57-a666-76e579ebb436",
+			"key": "organizationId",
+			"value": "961983",
+			"type": "string"
+		},
+		{
+			"id": "fb52c12e-ee31-4d9b-a38d-27ebbd42b8a1",
+			"key": "serial",
+			"value": "Q2TV-CF3U-QQ7S",
+			"type": "string"
+		},
+		{
+			"id": "88e23946-830a-4bc1-a3d8-05dc3dff5434",
+			"key": "number",
+			"value": "5",
+			"type": "string"
+		},
+		{
+			"id": "3bf647b0-c24c-499b-8d35-b682d6739dec",
+			"key": "networkId",
+			"value": "N_706502191543801539",
+			"type": "string"
+		},
+		{
+			"id": "64976602-e39b-43ed-9405-b92969e2e92b",
+			"key": "vlanId",
+			"value": "1234",
+			"type": "string"
+		},
+		{
+			"id": "ac312fc7-09e5-4133-9b8b-a787b379146f",
+			"key": "router",
+			"value": "Q2KY-VZ3S-SSGQ",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
