@@ -1,6 +1,7 @@
 import requests
 import json
 
+
 url = "https://api.meraki.com/api/v0/devices/Q2CX-KZDV-HMWG/switchPorts"
 
 payload = {}
@@ -22,3 +23,6 @@ if (response.status_code) ==200:
 
 else:
     print("Unexpected status code: " + str(response.status_code))
+
+
+#print(response.headers)
