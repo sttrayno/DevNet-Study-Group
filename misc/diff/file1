@@ -1,0 +1,7 @@
+cp - copy a directory
+mkdir - Create a new directory
+ls - List the contents of a directory
+rm - Delete a file or directory
+pwd - print the current working directory
+chmod - change permissions of the file/directory
+mv - move a directory
