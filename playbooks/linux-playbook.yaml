@@ -1,0 +1,11 @@
+---
+- hosts: linux
+  remote_user: developer
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Add the user 'james' with a bash shell
+      user:
+        name: james
+        shell: /bin/bash
+        append: yes
