@@ -176,7 +176,7 @@ interface GigabitEthernet0/0/1
  negotiation auto
 !
 interface GigabitEthernet0/1/0
- switchport trunk allowed vlan 10,20,30,90,100,101,4094
+ switchport trunk allowed vlan 10,20,21,30,90,100,101,4094
  switchport mode trunk
 !
 interface GigabitEthernet0/1/1
